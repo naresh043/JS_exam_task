@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #inp1, #inp2, #inp3, #inp4, #inp5 {
+            height: 20px;
+            border: 3px solid black;
+            border-radius: 5px;
+        }
+        label {
+            font-size: 20px;
+        }
+        button {
+            margin-top: 20px;
+            height: 30px;
+            width: 12rem;
+            border: 3px solid;
+            border-radius: 5px;
+            background-color: red;
+        }
+        #form {
+            border: 5px solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+            width: 500px;
+            height: 500px;
+        }
+        body{
+            display: flex;
+ 
+            flex-wrap: wrap;
+        }
+        #div1{
+            border: 5px solid red;
+            display: inline-block;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+        }
+        .btn2{
+            width: 50px;
+            margin-left: 400px;
+            /* color: white; */
+            background-color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <form id="form">
+        <h1>REGISTRATION FORM</h1>
+        <label for="inp1">Enter the User Name</label><br>
+        <input type="text" id="inp1"><br>
+        <label for="inp2">Password</label><br>
+        <input type="password" id="inp2"><br>
+        <label for="inp3">Re-enter Password</label><br>
+        <input type="password" id="inp3"><br>
+        <label for="inp4">Email</label><br>
+        <input type="email" id="inp4"><br>
+        <label for="inp5">Address</label><br>
+        <input type="text" id="inp5"><br>
+        <button type="button" id="btn">CLICK ME</button>
+    </form>
+
+    <script>
+        // Add the event listener for the button
+        document.getElementById("btn").addEventListener("click", function () {
+            // Get the input values
+            var val1 = document.getElementById("inp1");
+            var val2 = document.getElementById("inp2");
+            var val3 = document.getElementById("inp3");
+            var val4 = document.getElementById("inp4");
+            var val5 = document.getElementById("inp5");
+        //    to store the input values in the variable 
+          var value1=val1.value
+          var value2=val2.value
+          var value3=val3.value
+          var value4=val4.value
+          var value5=val5.value
+
+
+
+
+
+            // Create elements for displaying user data
+            var divc = document.createElement("div")
+            divc.id = "div1";
+
+            var h1reg = document.createElement("h1");
+            h1reg.innerText = "User Details";
+
+            var h1c = document.createElement("h2");
+            h1c.innerText = "USER NAME: " + value1;
+            
+            var h2c = document.createElement("h2");
+            h2c.innerText = "USER PASSWORD: " + value2;
+
+            var h3c = document.createElement("h2");
+            h3c.innerText = "Password: " + value3;
+
+            var h4c = document.createElement("h2");
+            h4c.innerText = "EMAIL: " + value4;
+
+            var h5c = document.createElement("h2");
+            h5c.innerText = "ADDRESS: " + value5;
+
+            
+            // Create a button to remove the div
+            var btn2 = document.createElement("button");
+            btn2.className="btn2"
+            btn2.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            btn2.addEventListener("click", function () {
+                divc.remove();
+                btn2.remove();
+            });
+            
+            divc.append(btn2,h1reg, h1c, h2c, h3c, h4c, h5c);
+            // Append the div and button to the body
+            document.body.append(divc);
+            // empty the input form  field 
+            val1.value="";
+            val2.value="";
+            val3.value="";
+            val4.value="";
+            val5.value="";
+        });
+    </script>
+</body>
+</html>
